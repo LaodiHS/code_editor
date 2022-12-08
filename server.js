@@ -4,7 +4,7 @@ var express = require("express");
 const listenersEmitters= require("./Listeners_Emitters");
 var app = express();
 const port = process.env.PORT || 8080;
-const host = process.env.PORT ? `https://live-interactive-code-editor.herokuapp.com`:`http://localhost:${port}`;
+const host = process.env.PORT ? `https://code-editor-2p70.onrender.com/`:`http://localhost:${port}`;
 const path = require("path");
 
 const { write_file } = require("./lib/write_to_file.js");
@@ -59,7 +59,7 @@ const fs = require("fs");
             <link rel="stylesheet" href="public/styles.css">
         </head>
         <body>
-      <span class="header_span"><a href="https://wujimu.herokuapp.com/"> back</a> </div><h1> JS Code Editor </h1>
+      <span class="header_span"><a href="https://teaching-vtqn.onrender.com/"> back</a> </div><h1> JS Code Editor </h1>
       </span>
          <div id="textArea"></div>
             <div id="news-list"></div>
