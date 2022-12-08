@@ -1,0 +1,58 @@
+
+body {
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: 1fr 5fr 0.5fr;
+  align-items: center;
+  justify-items: center;
+  justify-content: center;
+  align-content: center;
+  margin: auto;
+}
+.CodeMirror {
+  min-width: 80%;
+  border-radius: 5px;
+}
+.header_span {
+  display: grid;
+  grid-template-columns: 1fr 7fr;
+}
+ a {
+  padding: 0.5rem 1rem;
+  margin: 0.5rem;
+  max-height: 35px;
+  color: white;
+  background-color: #daa250;
+  border-radius: 0.25rem;
+  text-align: center;
+  display: inline-block;
+  transition: all 0.3s;
+  font-family: "Source Sans Pro", sans-serif;
+    text-decoration: none;
+  color: white;
+}
+ a {
+
+}
+#select_a_theme {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  font-family: sans-serif;
+}
+#theme_id {
+  font-family: sans-serif;
+  background-color: #282a36;
+  color: lavender;
+  margin: auto;
+  text-align: center;
+}
+
+#select_a_theme label {
+  justify-content: center;
+}
+h1 {
+  font-size: 15px;
+}
+p {
+  font-size: 12px;
+}
