@@ -1,41 +1,40 @@
-const listenersEmitters= require("./Listeners_Emitters");
+const listenersEmitters = require("./Listeners_Emitters");
 const ListenerService = require("./ListenerService");
-class Editor_Model
-{
-    constructor(text_from_server, session_id) {
-      this.session_id = session_id;
-      this.text_content = text_from_server;
-      this.code_editor_options = {
-        //mode:"javascript"text/x-c++src
-        //
-        mode: "javascript",
-        lineNumbers: true,
-        lineWrapping: true,
-        indentWithTabs: true,
-        value: this.text_concent,
-        styleActiveLine: true,
-        matchBrackets: true,
-        theme: "solarized",
-        // linting option is not documented.
-        lint: { esversion: "10" },
-        width: "auto",
-        gutters: ["CodeMirror-lint-markers"],
-  
-        extraKeys: {
-          "Ctrl-J": "toMatchingTag",
-          "Ctrl-S": function (cm) {
-            saveCode(cm); //function called when 'ctrl+s' is used when instance is in focus
-          },
-          F11: function (cm) {
-            toggleFullscreen(cm, true); //function called for full screen mode
-          },
-          Esc: function (cm) {
-            toggleFullscreen(cm, false); //function to escape full screen mode
-          },
+class Editor_Model {
+  constructor(text_from_server, session_id) {
+    this.session_id = session_id;
+    this.text_content = text_from_server;
+    this.code_editor_options = {
+      //mode:"javascript"text/x-c++src
+      //
+      mode: "javascript",
+      lineNumbers: true,
+      lineWrapping: true,
+      indentWithTabs: true,
+      value: this.text_concent,
+      styleActiveLine: true,
+      matchBrackets: true,
+      theme: "solarized",
+      // linting option is not documented.
+      lint: { esversion: "10" },
+      width: "auto",
+      gutters: ["CodeMirror-lint-markers"],
+
+      extraKeys: {
+        "Ctrl-J": "toMatchingTag",
+        "Ctrl-S": function (cm) {
+          saveCode(cm); //function called when 'ctrl+s' is used when instance is in focus
         },
-  
-        dom: [
-          `
+        F11: function (cm) {
+          toggleFullscreen(cm, true); //function called for full screen mode
+        },
+        Esc: function (cm) {
+          toggleFullscreen(cm, false); //function to escape full screen mode
+        },
+      },
+
+      dom: [
+        `
           // DOM dependency functions
           ${ListenerService.toString()};
           
@@ -148,32 +147,32 @@ class Editor_Model
   listenerService.set(select, {type:'click', dep:{editor:editor}, method:(event,{editor})=> editor.setOption("theme",event.target.value)});
   ListenerService(listenerService);
           `,
-        ],
-      };
-    }
-  
-    /** 
+      ],
+    };
+  }
+
+  /** 
       @parameter text {String}
       @parameter session_id {String}
       @parameter socket {Object}
       @return void
       **/
-    save_text(text, socket) {
-      console.log(
-        `client code for ${this.session_id}:  ${log_to_client.logging.string(
-          text,
-          socket
-        )}`
-      );
-    }
-    get_text_content() {
-      return this.text_content;
-    }
-    start_editor() {
-      return {
-        code_text: this.text_content,
-        editor_options: this.code_editor_options,
-      };
-    }
+  save_text(text, socket) {
+    console.log(
+      `client code for ${this.session_id}:  ${log_to_client.logging.string(
+        text,
+        socket
+      )}`
+    );
+  }
+  get_text_content() {
+    return this.text_content;
+  }
+  start_editor() {
+    return {
+      code_text: this.text_content,
+      editor_options: this.code_editor_options,
+    };
+  }
 }
-module.exports=({ editor_model : Editor_Model })
+module.exports = { editor_model: Editor_Model };

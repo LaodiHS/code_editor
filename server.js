@@ -59,7 +59,6 @@ const fs = require("fs");
             <link rel="stylesheet" href="public/styles.css">
         </head>
         <body>
-      <span class="header_span"><a href="https://teaching-vtqn.onrender.com/"> back</a> </div><h1> JS Code Editor </h1>
       </span>
          <div id="textArea"></div>
             <div id="news-list"></div>
